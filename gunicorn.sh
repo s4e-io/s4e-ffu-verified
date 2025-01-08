@@ -1,0 +1,2 @@
+#!/bin/sh
+gunicorn  run:app -w 1 --threads 1  --reload --log-level info -b 0.0.0.0:8000 --access-logformat '{ "remote_address": "%(h)s", "user_name": "%(u)s", "date": "%(t)s", "status": "%(s)s", "method": "%(m)s", "url_path": "%(U)s", "query_string": "%(q)s", "protocol": "%(H)s", "response_length": "%(B)s","refere": "%(f)s","user_agent": "%(a)s","request_time_seconds": "%(L)s"}' --access-logfile "-" --log-file "-"
